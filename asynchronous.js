@@ -43,3 +43,25 @@ async function fetchData() {
 }
 
 fetchData();
+
+async function fetchData2(){
+    try{
+        let [data,data2] = await Promise.all([
+            fetch("https://jsonplaceholder.typicode.com/users/1"),
+            fetch("https://jsonplaceholder.typicode.com/posts?userId=1")
+        ]);
+
+        let dataRes =await data.json();
+        let dataRes2 =await data2.json();
+
+        console.log(dataRes);
+        console.log(dataRes2);
+                
+
+
+    }catch(e){
+        console.error("Error",e);
+    }
+}
+
+fetchData2();
